@@ -6,10 +6,10 @@ load_dotenv()
 
 def start_connect():
     try:
-        connection = cx_Oracle.connect(oracle_username, oracle_password, oracle_dsn)
+        connection = cx_Oracle.connect(orcl_username, orcl_password, orcl_dsn)
         return connection
     except cx_Oracle.Error as error:
-        print("Something Wrong : ", error)
+        print("!! Something Wrong !! : ", error)
         return None
 
 def insert_data(connection, sql_insert, data):
@@ -20,7 +20,7 @@ def insert_data(connection, sql_insert, data):
         cursor.close()
         print("Data Insertd Successfully")
     except cx_Oracle.Error as error:
-        print("Something Wrong : ", error)
+        print("!! Something Wrong !! : ", error)
 
 def delete_data(connection, sql_delete):
     try:
@@ -30,7 +30,7 @@ def delete_data(connection, sql_delete):
         cursor.close()
         print("Data Deleted Successfully")
     except cx_Oracle.Error as error:
-        print("Something Wrong : ", error)
+        print("!! Something Wrong !! : ", error)
 
 def update_data(connection, sql_update):
     try:
@@ -40,7 +40,7 @@ def update_data(connection, sql_update):
         cursor.close()
         print("Data Updated Successfully")
     except cx_Oracle.Error as error:
-        print("Something Wrong : ", error)
+        print("!! Something Wrong !! : ", error)
 
 def query_data(connection, sql_query):
     try:
@@ -50,11 +50,8 @@ def query_data(connection, sql_query):
         cursor.close()
         print(rows)
     except cx_Oracle.Error as error:
-        print("Something Wrong : ", error)
+        print("!! Something Wrong !! : ", error)
 
-
-    
-
-oracle_username = os.getenv("oracle_username")
-oracle_password = os.getenv("oracle_password")
-oracle_dsn = os.getenv("oracle_dsn")  
+orcl_username = os.getenv("orcl_username")
+orcl_password = os.getenv("orcl_password")
+orcl_dsn = os.getenv("orcl_dsn")  

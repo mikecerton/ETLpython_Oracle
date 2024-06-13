@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# connect to CouchDB using API
 def curl_request(url):
     command = ['curl', url]
     result = subprocess.run(command, capture_output=True, text=True)
@@ -15,6 +16,7 @@ def gen_key():
     value = randint(1, 9999)
     return str(value)
 
+# fetch data from CouchDB using API
 def load_data():
     tmp = []
     all_dic = curl_request(database_path + "_all_docs")
@@ -24,9 +26,9 @@ def load_data():
     return tmp
 
 url = "http:///{}:{}@localhost:{}/{}/"
-couchDB_username = os.getenv("couchDB_username")
-couchDB_password = os.getenv("couchDB_password")
-couchDB_port = os.getenv("couchDB_port")
-couchDB_tableName = os.getenv("couchDB_tableName")
+chDB_username = os.getenv("couchDB_username")
+chDB_password = os.getenv("couchDB_password")
+chDB_port = os.getenv("couchDB_port")
+chDB_tableName = os.getenv("couchDB_tableName")
 
-database_path = url.format(couchDB_username, couchDB_password, couchDB_port, couchDB_tableName)
+database_path = url.format(chDB_username, chDB_password, chDB_port, chDB_tableName)

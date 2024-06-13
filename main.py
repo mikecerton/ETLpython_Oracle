@@ -1,8 +1,10 @@
 import couchDB_connector
 import oracle_connector
 
+# start connection with Oracle database
 ora_conn = oracle_connector.start_connect()
 
+# fetch data from CouchDB
 data = couchDB_connector.load_data()
 
 if ora_conn:
