@@ -26,9 +26,9 @@ def load_data():
     return tmp
 
 url = "http:///{}:{}@localhost:{}/{}/"
-chDB_username = os.getenv("couchDB_username")
-chDB_password = os.getenv("couchDB_password")
-chDB_port = os.getenv("couchDB_port")
-chDB_tableName = os.getenv("couchDB_tableName")
+chDB_username = os.getenv("chDB_username")
+chDB_password = os.getenv("chDB_password")
+chDB_port = os.getenv("chDB_port")
+chDB_tableName = os.getenv("chDB_tableName")
 
 database_path = url.format(chDB_username, chDB_password, chDB_port, chDB_tableName)
